@@ -9,6 +9,12 @@ For some details about Hadoop 3 (such as new ports), see: https://fr.slideshare.
 > Please, read the content of Dockerfile, because it may be possible that you have to update it.
 > See the comments about the tgz of hadoop3.
 
+> After starting the container, you can access the web UI:
+> * HDFS: http://localhost:9870
+> * RM: http://localhost:8088
+
+
+
 * Build the image
 ```sh
 sudo docker build -t hadoop3 .
