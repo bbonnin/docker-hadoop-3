@@ -15,7 +15,7 @@ sudo docker build -t hadoop3 .
 
 * Run the container
 ```sh
-sudo docker run --hostname=hadoop3 -p 8088:8088 -p 9870:9870 -p 9864:9864 --name hadoop3 -d hadoop3
+sudo docker run --hostname=hadoop3 -p 8088:8088 -p 9870:9870 -p 9864:9864 -p 19888:19888 -p 8042:8042 --name hadoop3 -d hadoop3
 ```
 
 * Access the container
@@ -25,7 +25,7 @@ sudo docker exec -it hadoop3 bash
 
 * Test a job
 ```sh
-yarn --config /opt/hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.0.0.jar pi 10 100
+yarn jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.0.0.jar pi 10 100
 ```
 
 * Clean

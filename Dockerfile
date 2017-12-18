@@ -8,6 +8,7 @@ RUN \
     ssh \
     rsync \
     vim \
+    net-tools \
     openjdk-8-jdk
 
 # Add this line OR ...
@@ -44,6 +45,6 @@ ADD ssh_config /root/.ssh/config
 
 ADD start-hadoop.sh start-hadoop.sh
 
-EXPOSE 8088 9870 9864
+EXPOSE 8088 9870 9864 19888 8042
 
 CMD bash start-hadoop.sh
