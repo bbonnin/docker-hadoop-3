@@ -11,7 +11,7 @@ RUN \
     net-tools \
     openjdk-8-jdk
 
-# Add this line OR ...
+# If you have already downloaded the tgz, add this line OR comment it AND ...
 ADD hadoop-3.0.0.tar.gz /
 
 # ... uncomment the 2 first lines
