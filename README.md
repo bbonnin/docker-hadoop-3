@@ -14,6 +14,7 @@ For some details about Hadoop 3 (such as new ports), see: https://fr.slideshare.
 > * RM: http://localhost:8088
 
 
+## How-to
 
 * Build the image
 ```sh
@@ -41,3 +42,12 @@ yarn jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.0.0.jar
 sudo docker stop hadoop3 
 sudo docker rm hadoop3 
 ```
+
+## Next steps
+
+| Product/Framework/Env. | Version | (R)equired/((O)ptional |
+| --- | --- | --- |
+| Hue | 4.1 | R |
+| Hive | 2.3.2 | R |
+| Spark | 2.2.0 | O |
+| Ambari | 2.6.1 | O |
