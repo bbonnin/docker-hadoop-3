@@ -51,3 +51,7 @@ sudo docker rm hadoop3
 | Hive | 2.3.2 | R |
 | Spark | 2.2.0 | O |
 | Ambari | 2.6.1 | O |
+
+## Some notes
+
+* Hue: https://www.dropbox.com/s/auwpqygqgdvu1wj/hue-4.1.0.tgz
