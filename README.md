@@ -55,3 +55,4 @@ sudo docker rm hadoop3
 ## Some notes
 
 * Hue: https://www.dropbox.com/s/auwpqygqgdvu1wj/hue-4.1.0.tgz
+* Hive: http://apache.crihan.fr/dist/hive/hive-2.3.2/apache-hive-2.3.2-bin.tar.gz
