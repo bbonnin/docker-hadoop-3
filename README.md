@@ -49,8 +49,15 @@ sudo docker rm hadoop3
 | --- | --- | --- |
 | Hue | 4.1 | R |
 | Hive | 2.3.2 | R |
+| Minifi | ? | O |
+| Druid | ? | O |
+| Kafka | ? | O |
+| Storm | ? | O |
 | Spark | 2.2.0 | O |
 | Ambari | 2.6.1 | O |
+| Ambari-metrics | 2.6.1 | O |
+| HBase | ? | O |
+
 
 ## Some notes
 
