@@ -12,9 +12,9 @@ For some details about Hadoop 3 (such as new ports), see: https://fr.slideshare.
 > After starting the container, you can access the web UI:
 > * HDFS: http://localhost:9870
 > * RM: http://localhost:8088
-> * HUE: http://localhost:8888
+> * HUE: http://localhost:8888 (create a user `hue`)
 
-> Warning: hue is not fully functional... Its integration is a work in progess !
+> Warning: hue is not fully functional... Its integration is a work in progess (file browsing is ok) !
 
 
 ## How-to
