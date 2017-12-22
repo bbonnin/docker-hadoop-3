@@ -12,6 +12,9 @@ For some details about Hadoop 3 (such as new ports), see: https://fr.slideshare.
 > After starting the container, you can access the web UI:
 > * HDFS: http://localhost:9870
 > * RM: http://localhost:8088
+> * HUE: http://localhost:8888
+
+> Warning: hue is not fully functional... Its integration is a work in progess !
 
 
 ## How-to
@@ -24,7 +27,8 @@ sudo docker build -t hadoop3 .
 
 * Run the container
 ```sh
-sudo docker run --hostname=hadoop3 -p 8088:8088 -p 9870:9870 -p 9864:9864 -p 19888:19888 -p 8042:8042 --name hadoop3 -d hadoop3
+sudo docker run --hostname=hadoop3 -p 8088:8088 -p 9870:9870 -p 9864:9864 -p 19888:19888 \
+  -p 8042:8042 -p 8888:8888 --name hadoop3 -d hadoop3
 ```
 
 * Access the container
