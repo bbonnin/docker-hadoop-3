@@ -1,40 +1,39 @@
-FROM ubuntu:16.04
+FROM ubuntu:17.10
 
 ENV HADOOP_HOME /opt/hadoop
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
-RUN \
-    apt-get update && apt-get install -y --reinstall build-essential && \
-    apt-get install -y \
-    ssh \
-    rsync \
-    vim \
-    net-tools \
-    openjdk-8-jdk \
-    python2.7-dev \
-    libxml2-dev \
-    libkrb5-dev \
-    libffi-dev \
-    libssl-dev \
-    libldap2-dev \
-    python-lxml \
-    libxslt1-dev \
-    libgmp3-dev \
-    libsasl2-dev \
-    libsqlite3-dev \ 
-    libmysqlclient-dev
+RUN apt-get update
+RUN apt-get install -y --reinstall build-essential
+RUN apt-get install -y ssh 
+RUN apt-get install -y rsync 
+RUN apt-get install -y vim 
+RUN apt-get install -y net-tools
+RUN apt-get install -y openjdk-8-jdk 
+RUN apt-get install -y python2.7-dev 
+RUN apt-get install -y libxml2-dev 
+RUN apt-get install -y libkrb5-dev 
+RUN apt-get install -y libffi-dev 
+RUN apt-get install -y libssl-dev 
+RUN apt-get install -y libldap2-dev 
+RUN apt-get install -y python-lxml 
+RUN apt-get install -y libxslt1-dev 
+RUN apt-get install -y libgmp3-dev 
+RUN apt-get install -y libsasl2-dev 
+RUN apt-get install -y libsqlite3-dev  
+RUN apt-get install -y libmysqlclient-dev
 
 RUN \
     if [ ! -e /usr/bin/python ]; then ln -s /usr/bin/python2.7 /usr/bin/python; fi
 
 # If you have already downloaded the tgz, add this line OR comment it AND ...
-ADD hadoop-3.0.0.tar.gz /
+ADD hadoop-3.1.0.tar.gz /
 
 # ... uncomment the 2 first lines
 RUN \
-#    wget http://apache.crihan.fr/dist/hadoop/common/hadoop-3.0.0/hadoop-3.0.0.tar.gz && \
-#    tar -xzf hadoop-3.0.0.tar.gz && \
-    mv hadoop-3.0.0 $HADOOP_HOME && \
+#    wget http://apache.crihan.fr/dist/hadoop/common/hadoop-3.1.0/hadoop-3.1.0.tar.gz && \
+#    tar -xzf hadoop-3.1.0.tar.gz && \
+    mv hadoop-3.1.0 $HADOOP_HOME && \
     for user in hadoop hdfs yarn mapred hue; do \
          useradd -U -M -d /opt/hadoop/ --shell /bin/bash ${user}; \
     done && \
@@ -53,14 +52,18 @@ RUN \
 ####################################################################################
 # HUE
 
+# https://www.dropbox.com/s/auwpqygqgdvu1wj/hue-4.1.0.tgz
 ADD hue-4.1.0.tgz /
 
-RUN \
-#    wget https://www.dropbox.com/s/auwpqygqgdvu1wj/hue-4.1.0.tgz && \
-#    tar -xzf hue-4.1.0.tgz && \
-    cd hue-4.1.0 && \
-    PREFIX=/opt make install && \
-    chown -R hue:hue /opt/hue
+
+##
+RUN mv -f /hue-4.1.0 /opt/hue
+WORKDIR /opt/hue
+RUN make apps
+
+RUN chown -R hue:hue /opt/hue
+
+WORKDIR /
 
 
 ####################################################################################
